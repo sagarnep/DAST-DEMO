@@ -1,5 +1,7 @@
 name: Security Checks
 on: [push]
+permissions:
+  issues: write
 
 jobs:
   test:
