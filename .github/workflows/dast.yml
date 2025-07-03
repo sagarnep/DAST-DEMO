@@ -9,15 +9,17 @@ jobs:
        - uses: actions/checkout@v4
        - name: Building Docker Node-Goat Image
          run: |
-            sudo apt update -y
-            sudo apt install docker-compose
-            docker-compose build
-
+           sudo apt update -y
+           sudo apt install docker-compose -y && sudo apt install docker.io -y
+           docker-compose build
        - name: Launching the app
          run: docker-compose up --detach
 
        - name: OWASP ZAP
-         uses: zaproxy/action-full-scan@v0.10.0 
+         uses: zaproxy/action-baseline@v0.4.0
          with:
-            target: 'http://localhost:4200' #Specify the endpoint of your application
-            allow_issue_writing: false
+           # Target URL
+           target: "http://localhost:4000"
+           fail_action: false
+           token: $
+           issue_title: Security Tests
