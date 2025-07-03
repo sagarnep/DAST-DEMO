@@ -16,10 +16,7 @@ jobs:
          run: docker-compose up --detach
 
        - name: OWASP ZAP
-         uses: zaproxy/action-baseline@v0.4.0
+         uses: zaproxy/action-full-scan@v0.10.0 
          with:
-           # Target URL
-           target: "http://localhost:4000"
-           fail_action: false
-           token: $
-           issue_title: Security Tests
+            target: 'http://localhost:4200' #Specify the endpoint of your application
+            allow_issue_writing: false
