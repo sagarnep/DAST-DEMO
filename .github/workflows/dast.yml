@@ -6,9 +6,7 @@ jobs:
     name: OWASP ZAP SCANS
     runs-on: ubuntu-latest
     steps:
-       - uses: actions/checkout@v2
-         with:
-          ref: master
+       - uses: actions/checkout@v4
        - name: Building Docker Node-Goat Image
          run: docker-compose build
        - name: Launching the app
