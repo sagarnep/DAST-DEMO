@@ -10,7 +10,7 @@ jobs:
        - name: Building Docker Node-Goat Image
          run: |
            sudo apt update -y
-           sudo apt install docker-compose -y && sudo apt install docker.io -y
+           sudo apt install docker-compose -y
            docker-compose build
        - name: Launching the app
          run: docker-compose up --detach
